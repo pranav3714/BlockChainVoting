@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script type="text/javascript">
+    if(localStorage.getItem("token") == null || localStorage.getItem("token") == ""){
+        window.location = "/"
+    }
+    </script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Computer Freedom</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 col-sm-push-2 col-lg-12">
+                <h1 class="text-center">Vote on Block</h1>
+                <hr />
+                <button id="down" class="btn btn-primary">Download EID</button>
+                <a id="etherscan" href="https://etherscan.com" target="_blank"><span class="float-right" id="public"></span></a>
+                <hr />
+                <br />
+            </div>
+        </div>
+
+        <div id="candidatesRow" class="row">
+            <!-- candidateS LOAD HERE -->
+        </div>
+
+        <div id="candidateTemplate" class="displayChange" style="display: none;">
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="panel panel-default panel-candidate">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Scrappy</h3>
+                    </div>
+                    <div class="panel-body">
+                        <img alt="140x140" data-src="" class="img-rounded img-center" style="width: 100%;" src="" data-holder-rendered="true">
+                        <br /><br />
+                        <strong>Candidate ID</strong>: <span class="candidate-id">0</span><br />
+                        <strong>Party</strong>: <span class="candidate-party">Golden Retriever</span><br />
+                        <strong>Vote Count</strong>: <span class="vote-count">0</span><br />
+                        <button class="btn btn-default btn-adopt vote-btn" type="button" data-id="0">Vote</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="></script>
+        <script src="popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" ></script>
+        <script src="bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"></script>
+        <!-- Web3 and app.js imports -->
+        <script src="web3.min.js"></script>
+        <script src="bundle.js"></script>
+        <script src="app.js"></script>
+</body>
+
+</html>

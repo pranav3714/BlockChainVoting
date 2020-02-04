@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Home</title>
+    <style>
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/">BlockRight</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/results">See Results</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6">
+                <!-- PAN form -->
+                <div class="container mt-5">
+                    <form id="login">
+                        <div class="form-group">
+                            <label for="panNum">PAN Number</label>
+                            <input type="text" class="form-control" id="panNum" aria-describedby="PANhelp"
+                                placeholder="AAAPL1234C" required />
+                            <small id="PANhelp" class="form-text text-muted">We'll never share your PAN number with
+                                anyone
+                                else.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="phoneNumber">Phone</label>
+                            <input type="number" class="form-control" id="phoneNumber" aria-describedby="phoneHelp"
+                                placeholder="9324679902" min="7666222210" max="9999999999" required />
+                            <small id="phoneHelp" class="form-text text-muted">Don't add +91 or 0 in the
+                                beginning</small>
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="panSubmit">Submit</button>
+                        <span id="loginError" class="text-danger pl-4"></span>
+                    </form>
+                </div>
+                <!-- PAN form end -->
+                <div class="container mt-5">
+                    <form id="otp" style="display: none;">
+                        <div class="form-group">
+                            <label for="otpNum">One Time Password</label>
+                            <input type="text" class="form-control" id="otpNum" aria-describedby="otpHelp"
+                                placeholder="12345" maxlength="5" minlength="5" required />
+                            <small id="otpHelp" class="form-text text-muted">Please check your phone registered with PAN
+                                Card.</small>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit OTP</button>
+                        <span id="otpError" class="text-danger pl-4"></span>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="embed-responsive embed-responsive-21by9 tohide">
+                    <video id="video" playsinline autoplay></video>
+                </div>
+                <div>
+                    <button id="snap" class="tohide">Capture</button>
+                    <p id="spanErrorMsg"></p>
+                </div>
+                <canvas class="tohide" id="captured" width="640" height="480">
+
+                </canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="></script>
+    <script type="text/javascript" src="index.js"></script>
+    <script src="popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"></script>
+    <script src="bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"></script>
+</body>
+
+</html>
