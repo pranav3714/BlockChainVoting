@@ -4,7 +4,7 @@ require('dotenv').config()
 //Make sure that the records of the user is present in the database (name, pan, phone)
 
 let imageone = "base64 encoded image goes here"
-const url = "mongodb://"+process.env.DB_URL
+const url = process.env.DB_URL
 const dbName = process.env.DB_NAME
 const collName = process.env.DB_COLL
 
