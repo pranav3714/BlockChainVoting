@@ -172,31 +172,41 @@ let abi = [
   }
 ], address = "0x47012adE19FB79084Bb6Bb340D76B5432c2f0a8f";
 
-  let httpRequest = (_link, _json, successCallback, failCallback=(a,b,c) => {console.log("error")}) => {
-    $.ajax({
-        url: _link,
-        dataType: 'json',
-        type: 'post',
-        contentType: 'application/json',
-        data: JSON.stringify(_json),
-        processData: false,
-        success: successCallback,
-        error: failCallback
-    })
+let httpRequest = (_link, _json, successCallback, failCallback = (a, b, c) => { console.log("error") }) => {
+  $.ajax({
+    url: _link,
+    dataType: 'json',
+    type: 'post',
+    contentType: 'application/json',
+    data: JSON.stringify(_json),
+    processData: false,
+    success: successCallback,
+    error: failCallback
+  })
 }
 
 function download(filename, text) {
-    var element = document.createElement('a');
-    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
-    element.setAttribute('download', filename);
-    element.style.display = 'none';
-    document.body.appendChild(element);
-    element.click();
-    document.body.removeChild(element);
-  }
+  var element = document.createElement('a');
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+  element.setAttribute('download', filename);
+  element.style.display = 'none';
+  document.body.appendChild(element);
+  element.click();
+  document.body.removeChild(element);
+}
 
 $("#down").click(() => {
   let eid = JSON.parse(localStorage.getItem('account'))
   eid.name = localStorage.getItem('name')
   download("E-Voter's ID", JSON.stringify(eid))
+})
+
+$("#logout").click(() => {
+  let answer = confirm("Once you logout you will lose this account forever due to security reasons so please logout only if you have voted. Are you sure?")
+  if (answer) {
+    localStorage.clear()
+    window.location = "/"
+  } else {
+    console.log("Logout Abort")
+  }
 })

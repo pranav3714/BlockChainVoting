@@ -6,9 +6,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script type="text/javascript">
-    if(localStorage.getItem("token") == null || localStorage.getItem("token") == ""){
-        window.location = "/"
-    }
+        if (localStorage.getItem("token") == null || localStorage.getItem("token") == "") {
+            window.location = "/"
+        }
     </script>
 
     <!-- Bootstrap CSS -->
@@ -16,6 +16,28 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <title>Computer Freedom</title>
+    <style>
+        .loader {
+            border: 16px solid #f3f3f3;
+            /* Light grey */
+            border-top: 16px solid #3498db;
+            /* Blue */
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -25,7 +47,9 @@
                 <h1 class="text-center">Vote on Block</h1>
                 <hr />
                 <button id="down" class="btn btn-primary">Download EID</button>
-                <a id="etherscan" href="https://etherscan.com" target="_blank"><span class="float-right" id="public"></span></a>
+                <button id="logout" class="btn btn-danger">Log Out</button>
+                <a id="etherscan" href="https://etherscan.com" target="_blank"><span class="float-right"
+                        id="public"></span></a>
                 <hr />
                 <br />
             </div>
@@ -42,7 +66,8 @@
                         <h3 class="panel-title">Scrappy</h3>
                     </div>
                     <div class="panel-body">
-                        <img alt="140x140" data-src="" class="img-rounded img-center" style="width: 100%;" src="" data-holder-rendered="true">
+                        <img alt="140x140" data-src="" class="img-rounded img-center" style="width: 100%;" src=""
+                            data-holder-rendered="true">
                         <br /><br />
                         <strong>Candidate ID</strong>: <span class="candidate-id">0</span><br />
                         <strong>Party</strong>: <span class="candidate-party">Golden Retriever</span><br />
@@ -52,12 +77,34 @@
                 </div>
             </div>
         </div>
+        
+        <!-- Modal -->
+        <div class="modal fade" id="loadingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true" data-backdrop="static">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content align-items-center">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Uploading data to the BlockChain</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="loader"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <p>
+                            Do not reload the page this may take upto 30 seconds.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="></script>
-        <script src="popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" ></script>
-        <script src="bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"></script>
+        <script src="popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"></script>
+        <script src="bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"></script>
         <!-- Web3 and app.js imports -->
         <script src="web3.min.js"></script>
         <script src="bundle.js"></script>
